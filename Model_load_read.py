@@ -29,7 +29,7 @@ class Read(SIMS):
         ws = wb.active
         for row in ws.iter_rows(values_only=True):
             self.read_cache.append(row)
-        print(self.read_cache)
+        # print(self.read_cache)
 
 # 加载文件数据
 def loading():
@@ -45,21 +45,27 @@ def loading():
         loading_data_list = read.read_data_to_cache()
         return loading_data_list
     else:
-        print("未找到初始txt或excel文件")
         return None
 
 def read_max_10_step():
     loading_data_list = loading()
-    step = 10
-    index = 0
-    while index < len(loading_data_list):
-        for i in range(index, min(index + step, len(loading_data_list))):
-            print(loading_data_list[i])
-        index += step
-        if index < len(loading_data_list):
-            go_on_read = input("是否继续读取?[y/n]")
-            if go_on_read != 'y':
-                break
+    try:
+        if loading_data_list == None:
+            print("暂无数据")
+        else:
+            step = 10
+            index = 0
+            while index < len(loading_data_list):
+                for i in range(index, min(index + step, len(loading_data_list))):
+                    print(loading_data_list[i])
+                index += step
+                if index < len(loading_data_list):
+                    go_on_read = input("是否继续读取?[y/n]")
+                    if go_on_read != 'y':
+                        break
+    except:
+        print("请检查文件是否存在")
+
 
 if __name__ == '__main__':
     # read_max_10_step()
