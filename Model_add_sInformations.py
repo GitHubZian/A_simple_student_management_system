@@ -224,9 +224,3 @@ class Add(SIMS):
                     f.write('\n')
                     cache_index += 1
 
-
-if __name__ == '__main__':
-    add = Add()
-    add.enter_information()
-    add._write_to_excel()
-    # add.add_operate()

@@ -213,9 +213,3 @@ class Find_or_Drop(SIMS):
                     pass
                 else:
                     f.write(line)
-
-if __name__ == '__main__':
-    find_or_Drop = Find_or_Drop()
-    # find_or_Drop.search_information()
-    # model = find_or_Drop.knew_txt_or_excel()
-    find_or_Drop.drop_information()

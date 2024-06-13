@@ -20,7 +20,7 @@ class Read(SIMS):
     def _read_data_by_txt(self):
         with open(self.file_name,'r',encoding="utf-8") as f:
             for line in f.readlines():
-                line = line[0] + line[3:].strip('\n').replace(' ', ',')
+                line = line[0] + line[3:].strip('\n')
                 self.read_cache.append(line)
             return self.read_cache
 
@@ -57,7 +57,7 @@ def read_max_10_step():
             index = 0
             while index < len(loading_data_list):
                 for i in range(index, min(index + step, len(loading_data_list))):
-                    print(loading_data_list[i])
+                    show_better(loading_data_list[i])
                 index += step
                 if index < len(loading_data_list):
                     go_on_read = input("是否继续读取?[y/n]")
@@ -66,7 +66,6 @@ def read_max_10_step():
     except:
         print("请检查文件是否存在")
 
-
-if __name__ == '__main__':
-    # read_max_10_step()
-    loading_data_list = loading()
+# 后续添加显示更人性化函数 pass to do it 
+def show_better(data):
+    print(data)
